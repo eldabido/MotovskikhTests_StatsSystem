@@ -1,0 +1,87 @@
+swagger: '2.0'
+info:
+  title: Motovskikh Server
+  version: 1.0.0
+schemes:
+  - https
+basePath: /
+consumes:
+  - application/json
+produces:
+  - application/json
+  - file
+  - text/html
+
+paths: {}
+
+definitions:
+  SubmitTestRequest:
+    type: object
+    required:
+      - test_name
+      - percentage
+      - time_spent
+      - question_count
+    properties:
+      test_name:
+        type: string
+      percentage:
+        type: number
+        format: double
+        minimum: 0
+        maximum: 100
+      time_spent:
+        type: integer
+        minimum: 1
+      question_count:
+        type: integer
+        minimum: 1
+
+  SubmitTestResponse:
+    type: object
+    properties:
+      submitted:
+        type: boolean
+      analysis:
+        $ref: '#/definitions/TestAnalysis'
+  
+  TestAnalysis:
+    type: object
+    properties:
+      percentage:
+        type: number
+        x-omitempty: false
+      time_spent:
+        type: integer
+        x-omitempty: false
+      is_valid:
+        type: boolean
+        x-omitempty: false
+      percentile_rank:
+        type: number
+        x-omitempty: false
+      time_percentile:
+        type: number
+        x-omitempty: false
+      better_than:
+        type: number
+        x-omitempty: false
+      faster_than:
+        type: number
+        x-omitempty: false
+      average_percentage:
+        type: number
+        x-omitempty: false
+      average_time:
+        type: number
+        x-omitempty: false
+      vs_average:
+        type: object
+        x-omitempty: false
+        properties:
+          percentage_diff:
+            type: number
+            x-omitempty: false
+          time_diff:
+            type: number
+            x-omitempty: false
