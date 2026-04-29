@@ -1,4 +1,4 @@
-* Для генерации файлов устанавливаем [Свагер](https://github.com/go-swagger/go-swagger/releases)
+* Для генерации файлов нужно установить Свагер. Запуск идет через Makefile
 
 ├── api/                    	# HTTP handlers (слой представления)
 
