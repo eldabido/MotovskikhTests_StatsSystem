@@ -22,8 +22,6 @@
 
 │   └── notify.go           	# Логирование ошибок
 
-│   └── analysis.go
-
 │   └── percent_bucket.go
 
 │   └── time_bucket.go
